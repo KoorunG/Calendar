@@ -16,13 +16,19 @@ public class Calendar {
         //숫자를 입력 받아 해당하는 달의 최대 일 수를 출력하는 프로그램
         
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        System.out.print("달을 입력하세요 : ");
-        int month = Integer.parseInt(br.readLine());
+        System.out.print("반복할 횟수를 입력하세요 : ");
+        int count = Integer.parseInt(br.readLine());
         String result;
+        
+        for(int i = 0 ; i < count ; i++){
 
+            System.out.print("달을 입력하세요 : ");
+            int month = Integer.parseInt(br.readLine());
+        
         if (month < 1 || month > 12){
             System.out.println("유효하지 않은 달 입니다.");
-        } else {
+        } 
+        else {
         switch(month){
             case 1 : case 3 : case 5 : case 7 : case 8 : case 10 : case 12 : result = "31";
             break;
@@ -31,10 +37,12 @@ public class Calendar {
             break;
 
             default : result ="28";
-        }
-
+                        }
         System.out.println(month+"월의 최대 일 수는 : "+result+"일 입니다.");
+            }
         }
+        System.out.println("출력 완료");
+        br.close();
         
     }
     
