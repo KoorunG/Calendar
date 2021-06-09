@@ -14,17 +14,19 @@ public class Calendar {
         System.out.println("22 23 24 25 26 27 28");
 
         //숫자를 입력 받아 해당하는 달의 최대 일 수를 출력하는 프로그램
-        
+        String PROMPT="cal> ";
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        System.out.print("반복할 횟수를 입력하세요 : ");
-        int count = Integer.parseInt(br.readLine());
         String result;
+        int month = 0;
         
-        for(int i = 0 ; i < count ; i++){
+        while (true){                                                       // 무한루프를 걸고
 
-            System.out.print("달을 입력하세요 : ");
-            int month = Integer.parseInt(br.readLine());
-        
+            System.out.println("달을 입력하세요 : ");
+            System.out.print(PROMPT);
+            month = Integer.parseInt(br.readLine());
+            if (month == -1){                                               // month = -1이면 빠져나오는 조건을 걸었다
+                break;
+            }
         if (month < 1 || month > 12){
             System.out.println("유효하지 않은 달 입니다.");
         } 
