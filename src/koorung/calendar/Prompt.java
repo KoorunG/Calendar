@@ -2,9 +2,10 @@ package koorung.calendar;
 
 public class Prompt {
 
-    private final static String PROMPT="cal> ";
-
-    public void runPrompt(){
-        System.out.print(PROMPT);
+    public void runPromptCal(){
+        System.out.print(Constants.PROMPT_MONTH);
+    }
+    public void runPromptYear(){
+        System.out.print(Constants.PROMPT_YEAR);
     }
 }

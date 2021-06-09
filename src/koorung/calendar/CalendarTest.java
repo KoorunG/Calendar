@@ -13,13 +13,20 @@ public class CalendarTest {
         Calendar cal = new Calendar();
         //숫자를 입력 받아 해당하는 달의 최대 일 수를 출력하는 프로그램
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String result;
         int month = 0;
+        int year = 0;
         
         while (true){                                                       // 무한루프를 걸고
 
+            System.out.println("년도를 입력하세요 : ");
+            prompt.runPromptYear();
+            year = Integer.parseInt(br.readLine());
+            if (year == -1 ){
+                break;
+            }
+
             System.out.println("달을 입력하세요 : ");
-            prompt.runPrompt();
+            prompt.runPromptCal();
             month = Integer.parseInt(br.readLine());
             if (month == -1){                                               // month = -1이면 빠져나오는 조건을 걸었다
                 break;
@@ -29,18 +36,18 @@ public class CalendarTest {
         } 
         else {
         switch(month){
-            case 1 : case 3 : case 5 : case 7 : case 8 : case 10 : case 12 : result = "31";
+            case 1 : case 3 : case 5 : case 7 : case 8 : case 10 : case 12 : cal.getMaxDaysOfMonth(year, month);
             break;
     
-            case 4 : case 6 : case 9 : case 11 : result = "30";
+            case 4 : case 6 : case 9 : case 11 : cal.getMaxDaysOfMonth(year, month);
             break;
 
-            default : result ="28";
+            default : cal.getMaxDaysOfMonth(year, month);
                         }
-                        cal.printCalendar(month);
+                        cal.printCalendar(year,month);
                         System.out.println();
                         System.out.println(" =============================================== ");
-                        System.out.println(month+"월의 최대 일 수는 : "+result+"일 입니다.");
+                        System.out.println(month+"월의 최대 일 수는 : "+cal.getMaxDaysOfMonth(year, month)+"일 입니다.");
             }
         }
         System.out.println("출력 완료");
